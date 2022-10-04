@@ -1,2 +1,2 @@
-# opene_earth_map
+# OpeneEarthMap
 Quick start in OpenEarthMap 

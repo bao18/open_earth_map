@@ -31,7 +31,7 @@ def format_logs(logs):
 def metric(input, target):
     """
     Args:
-        input (tensor): prediction 
+        input (tensor): prediction
         target (tensor): reference data
 
     Returns:

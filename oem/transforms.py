@@ -54,7 +54,11 @@ def train_augm_full(sample, size=512):
     augms = A.Compose(
         [
             A.ShiftScaleRotate(
-                scale_limit=0.2, rotate_limit=45, border_mode=0, value=0, p=0.7,
+                scale_limit=0.2,
+                rotate_limit=45,
+                border_mode=0,
+                value=0,
+                p=0.7,
             ),
             A.PadIfNeeded(size, size, border_mode=0, value=0, p=1.0),
             A.RandomCrop(size, size, p=1.0),
@@ -65,7 +69,9 @@ def train_augm_full(sample, size=512):
             A.OneOf(
                 [
                     A.RandomBrightnessContrast(
-                        brightness_limit=0.3, contrast_limit=0.3, p=1.0,
+                        brightness_limit=0.3,
+                        contrast_limit=0.3,
+                        p=1.0,
                     ),
                     A.RandomGamma(gamma_limit=(70, 130), p=1),
                     A.ChannelShuffle(p=0.2),
@@ -76,7 +82,10 @@ def train_augm_full(sample, size=512):
                         p=1.0,
                     ),
                     A.RGBShift(
-                        r_shift_limit=30, g_shift_limit=30, b_shift_limit=30, p=1.0,
+                        r_shift_limit=30,
+                        g_shift_limit=30,
+                        b_shift_limit=30,
+                        p=1.0,
                     ),
                 ],
                 p=0.8,
@@ -115,7 +124,9 @@ def train_augm_color(sample, size=512):
             A.OneOf(
                 [
                     A.RandomBrightnessContrast(
-                        brightness_limit=0.3, contrast_limit=0.3, p=1.0,
+                        brightness_limit=0.3,
+                        contrast_limit=0.3,
+                        p=1.0,
                     ),
                     A.RandomGamma(gamma_limit=(70, 130), p=1),
                     A.ChannelShuffle(p=0.2),
@@ -126,7 +137,10 @@ def train_augm_color(sample, size=512):
                         p=1.0,
                     ),
                     A.RGBShift(
-                        r_shift_limit=30, g_shift_limit=30, b_shift_limit=30, p=1.0,
+                        r_shift_limit=30,
+                        g_shift_limit=30,
+                        b_shift_limit=30,
+                        p=1.0,
                     ),
                 ],
                 p=0.8,
@@ -180,13 +194,22 @@ def train_augm_other(sample, size=512):
     augms = A.Compose(
         [
             A.ShiftScaleRotate(
-                scale_limit=0.2, rotate_limit=45, border_mode=0, value=0, p=0.7,
+                scale_limit=0.2,
+                rotate_limit=45,
+                border_mode=0,
+                value=0,
+                p=0.7,
             ),
             A.PadIfNeeded(size, size, border_mode=0, value=0, p=1.0),
             A.RandomCrop(size, size, p=1.0),
             A.Flip(p=0.5),
             A.Downscale(scale_min=0.5, scale_max=0.75, p=0.05),
-            A.MaskDropout(max_objects=3, image_fill_value=0, mask_fill_value=0, p=0.1,),
+            A.MaskDropout(
+                max_objects=3,
+                image_fill_value=0,
+                mask_fill_value=0,
+                p=0.1,
+            ),
         ]
     )
     return augms(image=sample["image"], mask=sample["mask"])

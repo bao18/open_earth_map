@@ -46,8 +46,8 @@ def fscore(pr, gt, beta=1, eps=1e-7, threshold=None):
     tp = torch.sum(gt * pr)
     fp = torch.sum(pr) - tp
     fn = torch.sum(gt) - tp
-    score = ((1 + beta ** 2) * tp + eps) / (
-        (1 + beta ** 2) * tp + beta ** 2 * fn + fp + eps
+    score = ((1 + beta**2) * tp + eps) / (
+        (1 + beta**2) * tp + beta**2 * fn + fp + eps
     )
     return score
 

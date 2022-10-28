@@ -31,17 +31,12 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
         augm (albumentations): transfromation pipeline (e.g. flip, cut, etc.)
     """
 
-    def __init__(
-        self, img_list, classes, img_size=512, augm=None, mu=None, sig=None,
-    ):
+    def __init__(self, img_list, classes, img_size=512, augm=None):
         self.fn_imgs = [str(f) for f in img_list]
         self.fn_msks = [f.replace("/images/", "/labels/") for f in self.fn_imgs]
         self.augm = augm
-        self.to_tensor = (
-            transforms.ToTensor(classes=classes)
-            if mu is None
-            else transforms.ToTensorNorm(classes=classes, mu=mu, sig=sig)
-        )
+        self.to_tensor = transforms.ToTensor(classes=classes)
+
         self.size = img_size
         self.load_multiband = load_multiband
         self.load_grayscale = load_grayscale

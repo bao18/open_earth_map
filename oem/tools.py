@@ -36,7 +36,7 @@ def make_mask(a, grey_codes: dict = class_grey_oem, rgb_codes: dict = class_rgb_
     Args:
         a (numpy array): one-hot semantic label map (H x W x n-classes)
         rgd_codes (dict): dict of class-rgd code
-        grey_codes (dict): dict of label code    
+        grey_codes (dict): dict of label code
 
     Returns:
         array: semantic label map
@@ -56,7 +56,7 @@ def make_rgb(a, grey_codes: dict = class_grey_oem, rgb_codes: dict = class_rgb_o
         rgd_codes (dict): dict of class-rgd code
         grey_codes (dict): dict of label code
     Returns:
-        array: semantic label map rgb-color coded        
+        array: semantic label map rgb-color coded
     """
     out = np.zeros(shape=a.shape + (3,), dtype="uint8")
     for k, v in grey_codes.items():

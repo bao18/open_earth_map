@@ -8,6 +8,14 @@
 
 </div>
 
-
+<!-- 
 # OpenEarthMap
-Quick start in OpenEarthMap 
+Quick start in OpenEarthMap  -->
+The main features of this library are:
+
+ - High level API (just two lines to create a neural network)
+ - 9 models architectures for binary and multi class segmentation (including legendary Unet)
+ - 119 available encoders (and 400+ encoders from [timm](https://github.com/rwightman/pytorch-image-models))
+ - All encoders have pre-trained weights for faster and better convergence
+ - Popular metrics and losses for training routines
+ 

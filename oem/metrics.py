@@ -53,6 +53,12 @@ def fscore(pr, gt, beta=1, eps=1e-7, threshold=None):
 
 
 class Fscore(nn.Module):
+    """_summary_
+
+    Args:
+        nn (_type_): _description_
+    """
+
     def __init__(self, class_weights=1.0, threshold=None):
         super().__init__()
         self.class_weights = torch.tensor(class_weights)
@@ -71,6 +77,12 @@ class Fscore(nn.Module):
 
 
 class IoU(nn.Module):
+    """_summary_
+
+    Args:
+        nn (_type_): _description_
+    """
+
     def __init__(self, class_weights=1.0, threshold=None):
         super().__init__()
         self.class_weights = torch.tensor(class_weights)

@@ -1,10 +1,7 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Contact: bruno.adriano@riken.jp
-
 import numpy as np
 import torch
 import rasterio
+from PIL import Image
 from . import transforms
 
 
@@ -22,7 +19,6 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
 
     """
     OpenEarthMap dataset
-    Geoinformatics Unit, RIKEN AIP
 
     Args:
         fn_list (str): List containing images paths
@@ -31,21 +27,27 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
         augm (albumentations): transfromation pipeline (e.g. flip, cut, etc.)
     """
 
-    def __init__(self, img_list, classes, img_size=512, augm=None):
+    def __init__(self, img_list, classes, augm=None):
         self.fn_imgs = [str(f) for f in img_list]
         self.fn_msks = [f.replace("/images/", "/labels/") for f in self.fn_imgs]
         self.augm = augm
         self.to_tensor = transforms.ToTensor(classes=classes)
 
-        self.size = img_size
         self.load_multiband = load_multiband
         self.load_grayscale = load_grayscale
 
     def __getitem__(self, idx):
-        img = self.load_multiband(self.fn_imgs[idx])
-        msk = self.load_grayscale(self.fn_msks[idx])
+        img = Image.fromarray(self.load_multiband(self.fn_imgs[idx]))
+        msk = Image.fromarray(self.load_grayscale(self.fn_msks[idx]))
 
-        data = self.to_tensor(self.augm({"image": img, "mask": msk}, self.size))
+        data = self.augm({"image": img, "mask": msk})
+
+        data = self.to_tensor(
+            {
+                "image": np.array(data["image"], dtype="uint8"),
+                "mask": np.array(data["mask"], dtype="uint8"),
+            }
+        )
         return data["image"], data["mask"], self.fn_imgs[idx]
 
     def __len__(self):

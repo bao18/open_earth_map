@@ -7,11 +7,8 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-NB_Make_OEM_Mini.ipynb
-NB_Remove_xView2.ipynb
 .Python
-OpenEarhMap_Mini/
-outputs/
+backups/
 *.pth
 build/
 develop-eggs/

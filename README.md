@@ -24,7 +24,7 @@ The main features of this library are:
 
 ### 💡 Examples <a name="examples"></a>
  - Training model for Multi-Class Semantic Segmentation with PyTorch [notebook](https://github.com/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb)
-- Make prediction (testing model) for Multi-Class Semantic Segmentation with PyTorch [notebook](https://github.com/bao18/open_earth_map/blob/main/demos/Testing_demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/demos/Testing_demo.ipynb)
+- Testing model for Multi-Class Semantic Segmentation with PyTorch [notebook](https://github.com/bao18/open_earth_map/blob/main/demos/Testing_demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/demos/Testing_demo.ipynb)
 
 
  <!-- - Training model for cars segmentation on CamVid dataset [here](https://github.com/qubvel/segmentation_models.pytorch/blob/master/examples/cars%20segmentation%20(camvid).ipynb).

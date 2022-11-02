@@ -7,8 +7,9 @@ np.random.seed(100)
 
 if __name__ == "__main__":
     OEMDIR = "/home/bruno/riken_openearthmap/LULC-RIKEN/integrated"
-    R = 0.2
+    R = 0.3
 
+    xbd = np.loadtxt("data/xbd_files.csv", delimiter=",", dtype=str)
     img_paths = [f for f in Path(OEMDIR).rglob("*.tif") if "/images/" in str(f)]
     train_fns = [
         str(f) for f in img_paths if f.name in np.loadtxt("data/train.txt", dtype=str)
@@ -36,6 +37,8 @@ if __name__ == "__main__":
 
             if len(idxs) > 0:
                 for idx in idxs:
-                    writer.writerow([imgs[idx]])
+
+                    if imgs[idx] not in xbd[:, 1].tolist():
+                        writer.writerow([imgs[idx]])
 
         f.close()

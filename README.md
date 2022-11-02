@@ -21,4 +21,6 @@ The main features of this library are:
  <!-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/catalyst-team/catalyst/blob/v21.02rc0/examples/notebooks/segmentation-tutorial.ipynb)
  -->
 
-  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com//github.com/bao18/open_earth_map/blob/main/Demo_Training.ipynb)
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/bao18/open_earth_map/blob/main/Demo_Training.ipynb)
+
+  <!-- https://github.com/bao18/open_earth_map/blob/main/Demo_Training.ipynb -->

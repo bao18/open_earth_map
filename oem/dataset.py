@@ -1,6 +1,5 @@
 import math
 import numpy as np
-import cv2
 import torch
 import rasterio
 from PIL import Image

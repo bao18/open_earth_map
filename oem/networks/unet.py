@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Contact: bruno.adriano@riken.jp
-
-
 # Adapted from https://discuss.pytorch.org/t/unet-implementation/426
 import torch
 from torch import nn
@@ -13,7 +8,7 @@ class UNet(nn.Module):
     def __init__(
         self,
         in_channels: int = 3,
-        num_classes: int = 1,
+        n_classes: int = 1,
         depth: int = 5,
         wf: int = 6,
         padding: bool = True,
@@ -46,7 +41,7 @@ class UNet(nn.Module):
         assert up_mode in ("upconv", "upsample")
         self.padding = padding
         self.depth = depth
-        self.out_channels = num_classes
+        self.out_channels = n_classes
         self.down_path = nn.ModuleList()
         for i in range(depth):
             self.down_path.append(

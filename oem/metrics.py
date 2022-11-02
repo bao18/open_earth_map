@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Contact: bruno.adriano@riken.jp
-
 import torch
 import torch.nn as nn
 

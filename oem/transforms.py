@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# Contact: bruno.adriano@riken.jp
-
 import random
 import numbers
 import numpy as np
@@ -20,7 +16,7 @@ class ToTensor:
         return sample
 
 
-class RandomRotate:
+class Rotate:
     def __init__(self, degrees=(-180, 180)):
         self.degrees = degrees
 
@@ -32,7 +28,7 @@ class RandomRotate:
         return {"image": img, "mask": msk}
 
 
-class RandomCrop:
+class Crop:
     def __init__(self, size):
         if isinstance(size, numbers.Number):
             self.size = (int(size), int(size))
@@ -41,12 +37,17 @@ class RandomCrop:
 
     def __call__(self, sample):
         h, w = sample["mask"].size
-        i = random.randrange(0, h - self.size[0])
-        j = random.randrange(0, w - self.size[1])
-        return {
-            "image": TF.crop(sample["image"], i, j, *self.size),
-            "mask": TF.crop(sample["mask"], i, j, *self.size),
-        }
+
+        if h > self.size[0] and w > self.size[1]:
+            i = random.randrange(0, h - self.size[0])
+            j = random.randrange(0, w - self.size[1])
+            img = TF.crop(sample["image"], i, j, *self.size)
+            msk = TF.crop(sample["mask"], i, j, *self.size)
+        else:
+            img = TF.resize(sample["image"], self.size, interpolation=PIL.Image.BICUBIC)
+            msk = TF.resize(sample["mask"], self.size, interpolation=PIL.Image.NEAREST)
+
+        return {"image": img, "mask": msk}
 
 
 class Resize:

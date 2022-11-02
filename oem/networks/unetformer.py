@@ -190,7 +190,7 @@ class GlobalLocalAttention(nn.Module):
         super().__init__()
         self.num_heads = num_heads
         head_dim = dim // self.num_heads
-        self.scale = head_dim ** -0.5
+        self.scale = head_dim**-0.5
         self.ws = window_size
 
         self.qkv = Conv(dim, 3 * dim, kernel_size=1, bias=qkv_bias)
@@ -468,7 +468,7 @@ class UNetFormer(nn.Module):
         pretrained=True,
         window_size=8,
         in_channels=3,
-        num_classes=6,
+        n_classes=6,
     ):
         super().__init__()
 
@@ -483,7 +483,11 @@ class UNetFormer(nn.Module):
         encoder_channels = self.backbone.feature_info.channels()
 
         self.decoder = Decoder(
-            encoder_channels, decode_channels, dropout, window_size, num_classes,
+            encoder_channels,
+            decode_channels,
+            dropout,
+            window_size,
+            n_classes,
         )
         self.name = "UNetFormer-{}".format(backbone_name.replace("_", "-"))
 

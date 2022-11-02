@@ -17,3 +17,5 @@ The main features of this library are:
  - Three models architectures for multi-class segmentation (including the popular U-Net)
  - Popular metrics and losses for training routines
  
+
+ [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/catalyst-team/catalyst/blob/v21.02rc0/examples/notebooks/segmentation-tutorial.ipynb)

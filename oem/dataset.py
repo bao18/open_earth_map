@@ -1,4 +1,6 @@
+import math
 import numpy as np
+import cv2
 import torch
 import rasterio
 from PIL import Image
@@ -40,7 +42,17 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
         img = Image.fromarray(self.load_multiband(self.fn_imgs[idx]))
         msk = Image.fromarray(self.load_grayscale(self.fn_msks[idx]))
 
-        data = self.augm({"image": img, "mask": msk})
+        if self.augm is not None:
+            data = self.augm({"image": img, "mask": msk})
+        else:
+            h, w = msk.size
+            power_h = math.ceil(np.log2(h) / np.log2(2))
+            power_w = math.ceil(np.log2(w) / np.log2(2))
+            if 2**power_h != h or 2**power_w != w:
+                img = img.resize((2**power_w, 2**power_h), resample=Image.BICUBIC)
+                msk = msk.resize((2**power_w, 2**power_h), resample=Image.NEAREST)
+            data = {"image": img, "mask": msk}
+
         data = self.to_tensor(
             {
                 "image": np.array(data["image"], dtype="uint8"),

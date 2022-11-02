@@ -1,4 +1,5 @@
 import os
+import time
 import warnings
 import numpy as np
 import torch
@@ -9,6 +10,8 @@ from pathlib import Path
 warnings.filterwarnings("ignore")
 
 if __name__ == "__main__":
+    start = time.time()
+
     OEMDIR = "/home/bruno/riken_openearthmap/LULC-RIKEN/integrated"
     TRAIN_LIST = "data/train_mini.txt"
     VAL_LIST = "data/val_mini.txt"
@@ -103,3 +106,5 @@ if __name__ == "__main__":
                 model_name="model.pth",
                 output_dir=OUTPUT_DIR,
             )
+
+    print("Elapsed time: {:.3f} min".format((time.time() - start) / 60.0))

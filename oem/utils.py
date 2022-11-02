@@ -1,4 +1,3 @@
-# inspired from https://www.kaggle.com/code/burcuamirgan/deeplabv3-deepglobe-lc-classification
 import os
 import numpy as np
 import torch
@@ -79,3 +78,30 @@ def save_model(model, epoch: int, best_score: float, model_name: str, output_dir
         os.path.join(output_dir, model_name),
     )
     print("model saved")
+
+
+def load_checkpoint(model, model_name: str, model_dir: str = "./"):
+    """
+
+    Args:
+        checkpoint (path/str): Path to saved torch model
+        model (object): torch model
+
+    Returns:
+        _type_: _description_
+    """
+    fn_model = os.path.join(model_dir, model_name)
+    checkpoint = torch.load(fn_model, map_location="cpu")
+    loaded_dict = checkpoint["state_dict"]
+    sd = model.state_dict()
+    for k in model.state_dict():
+        if k in loaded_dict and sd[k].size() == loaded_dict[k].size():
+            sd[k] = loaded_dict[k]
+    loaded_dict = sd
+    model.load_state_dict(loaded_dict)
+    print(
+        "Loaded model:{} (Epoch={}, Score={:.3f})".format(
+            model_name, checkpoint["epoch"], checkpoint["best_score"]
+        )
+    )
+    return model

@@ -23,7 +23,7 @@ The main features of this library are:
 
 
 ### 💡 Examples <a name="examples"></a>
- - Training model for Multi-Class Semantic Segmentation with PyTorch [notebook](https://github.com/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb) and [![Open In Colab](https://colabtocolab.research.google.com/assets/colab-badge.svg)](https://github.com/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb)
+ - Training model for Multi-Class Semantic Segmentation with PyTorch [notebook](https://github.com/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb) and [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/demos/Training_demo.ipynb)
 
  <!-- - Training model for cars segmentation on CamVid dataset [here](https://github.com/qubvel/segmentation_models.pytorch/blob/master/examples/cars%20segmentation%20(camvid).ipynb).
  - Training SMP model with [Catalyst](https://github.com/catalyst-team/catalyst) (high-level framework for PyTorch), [TTAch](https://github.com/qubvel/ttach) (TTA library for PyTorch) and [Albumentations](https://github.com/albu/albumentations) (fast image augmentation library) - [here](https://github.com/catalyst-team/catalyst/blob/v21.02rc0/examples/notebooks/segmentation-tutorial.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/catalyst-team/catalyst/blob/v21.02rc0/examples/notebooks/segmentation-tutorial.ipynb)

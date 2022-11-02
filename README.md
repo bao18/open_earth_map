@@ -24,6 +24,7 @@ python data/compile_xbd.py \
     --path_to_xBD "folder where xBD is located"
 ```
 
-### Examples <a name="examples"></a>
+<!-- ### Example <a name="examples"></a> -->
+### Example
 This example shows the application for multi-class semantic segmentation using a small version of the OpenEarthMap dataset [notebook](https://github.com/bao18/open_earth_map/blob/main/Demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/Demo.ipynb)
 

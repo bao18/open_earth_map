@@ -12,12 +12,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--path_to_OpenEarthMap",
         type=str,
-        default="/home/bruno/riken_openearthmap/LULC-RIKEN/ToZenodo/OpenEarthMap",
+        default="./OpenEarthMap",
     )
     parser.add_argument(
         "--path_to_xBD",
         type=str,
-        default="/media/gdrive8tb/xview2_solution/dataset/latest",
+        default="./xBD",
     )
     args = parser.parse_args()
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
         if "/images/" in str(f) and f.name.endswith("pre_disaster.png")
     ]
     xbd_fullimgs = np.asarray(xbd_fullimgs)
-    xbd_missing = np.loadtxt("data/xbd_files.csv", dtype=str, delimiter=",")
+    xbd_missing = np.loadtxt(os.path.join(OEMDIR, "xbd_files.csv"), dtype=str, delimiter=",")
 
     for f1, f2 in xbd_missing:
         idx = np.where(xbd_fullimgs[:, 0] == f1)[0]

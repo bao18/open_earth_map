@@ -27,5 +27,5 @@ python data/compile_xbd.py \
 
 <!-- ### Example <a name="examples"></a> -->
 ### Example
-This example shows the application for multi-class semantic segmentation using a small version of the OpenEarthMap dataset. Please, follow the following [notebook](https://github.com/bao18/open_earth_map/blob/main/Demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/Demo.ipynb)
+This example shows the application for multi-class semantic segmentation using a small version of the OpenEarthMap dataset. Please, follow the  [notebook](https://github.com/bao18/open_earth_map/blob/main/Demo.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bao18/open_earth_map/blob/main/Demo.ipynb)
 

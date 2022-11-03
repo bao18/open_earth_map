@@ -18,7 +18,7 @@ The main features of this library are:
  - Popular metrics and losses for training routines
 
 ### Compile full OpenEarthMap dataset
-To compile the full OpenEarthMap, the xBD dataset is needed. Please download both datasets, [OpenEarthMap](https://zenodo.org/record/7223446#.Y2Jj1OzP2Ak) and [xBD](https://xview2.org/dataset). Then, run the following command:
+To compile the full OpenEarthMap, the xBD dataset is needed. Please download both datasets, [OpenEarthMap](https://zenodo.org/record/7223446#.Y2Jj1OzP2Ak) and [xBD](https://xview2.org/dataset) (the datasets from the xView-2 Challenge, PNG images). Then, run the following command:
 ```python
 python data/compile_xbd.py \
     --path_to_OpenEarthMap "folder where OpenEarthMap is located" \

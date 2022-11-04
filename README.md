@@ -1,11 +1,8 @@
 <div align="center">
- 
 ![logo](https://github.com/bao18/open_earth_map/blob/main/pics/openearthmap.png)
 [![Generic badge](https://img.shields.io/badge/License-MIT-<COLOR>.svg?style=for-the-badge)](https://github.com/bao18/open_earth_map/blob/main/LICENSE) 
 [![PyTorch - Version](https://img.shields.io/badge/PYTORCH-1.12+-red?style=for-the-badge&logo=pytorch)](https://pytorch.org/get-started/previous-versions/) 
 [![Python - Version](https://img.shields.io/badge/PYTHON-3.7+-red?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/) 
-
-
 </div>
 
 <!-- 
@@ -17,11 +14,8 @@ Quick start in OpenEarthMap  -->
  - Three models architectures for multi-class segmentation (including the popular U-Net)
  - Popular metrics and losses for training routines -->
 
-### Project Page
-[https://open-earth-map.org/](https://open-earth-map.org/)
-
 ### Overview
-OpenEarthMap is a benchmark dataset for global high-resolution land cover mapping. OpenEarthMap consists of 5000 aerial and satellite images with manually annotated 8-class land cover labels and 2.2 million segments at a 0.25-0.5m ground sampling distance, covering 97 regions from 44 countries across 6 continents. OpenEarthMap fosters research including but not limited to semantic segmentation and domain adaptation. Land cover mapping models trained on OpenEarthMap generalize worldwide and can be used as off-the-shelf models in a variety of applications.
+OpenEarthMap is a benchmark dataset for global high-resolution land cover mapping. OpenEarthMap consists of 5000 aerial and satellite images with manually annotated 8-class land cover labels and 2.2 million segments at a 0.25-0.5m ground sampling distance, covering 97 regions from 44 countries across 6 continents. OpenEarthMap fosters research including but not limited to semantic segmentation and domain adaptation. Land cover mapping models trained on OpenEarthMap generalize worldwide and can be used as off-the-shelf models in a variety of applications. Project Page: [https://open-earth-map.org/](https://open-earth-map.org/)
 
 ### Reference
 ```

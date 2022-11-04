@@ -17,6 +17,9 @@ The main features of this library are:
  - Three models architectures for multi-class segmentation (including the popular U-Net)
  - Popular metrics and losses for training routines
 
+### Overview
+OpenEarthMap is a benchmark dataset for global high-resolution land cover mapping. OpenEarthMap consists of 5000 aerial and satellite images with manually annotated 8-class land cover labels and 2.2 million segments at a 0.25-0.5m ground sampling distance, covering 97 regions from 44 countries across 6 continents. OpenEarthMap fosters research including but not limited to semantic segmentation and domain adaptation. Land cover mapping models trained on OpenEarthMap generalize worldwide and can be used as off-the-shelf models in a variety of applications.
+
 ### Compile full OpenEarthMap dataset
 To compile the full OpenEarthMap, the xBD dataset is needed. Please download both datasets, [OpenEarthMap](https://zenodo.org/record/7223446#.Y2Jj1OzP2Ak) and [xBD](https://xview2.org/download) (the datasets from the xView-2 Challenge, PNG images). Then, run the following command:
 ```python

@@ -36,7 +36,7 @@ Label data of OpenEarthMap are provided under the same license as the original R
 ### Note for xBD data
 The RGB images of xBD dataset are not included in the OpenEarthMap dataset. Please download the xBD RGB images from https://xview2.org/dataset and add them to the corresponding folders. The "xbd_files.csv" contains information about how to prepare the xBD RGB images and add them to the corresponding folders.
 
-#### Compile full OpenEarthMap dataset
+#### Compiling OpenEarthMap dataset
 To compile the full OpenEarthMap, the xBD dataset is needed. Please download both datasets, [OpenEarthMap](https://zenodo.org/record/7223446#.Y2Jj1OzP2Ak) and [xBD](https://xview2.org/download) (the datasets from the xView-2 Challenge, PNG images). Then, run the following command:
 ```python
 python data/compile_xbd.py \

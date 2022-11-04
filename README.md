@@ -17,6 +17,9 @@ Quick start in OpenEarthMap  -->
  - Three models architectures for multi-class segmentation (including the popular U-Net)
  - Popular metrics and losses for training routines -->
 
+### Project Page
+[https://open-earth-map.org/](https://open-earth-map.org/)
+
 ### Overview
 OpenEarthMap is a benchmark dataset for global high-resolution land cover mapping. OpenEarthMap consists of 5000 aerial and satellite images with manually annotated 8-class land cover labels and 2.2 million segments at a 0.25-0.5m ground sampling distance, covering 97 regions from 44 countries across 6 continents. OpenEarthMap fosters research including but not limited to semantic segmentation and domain adaptation. Land cover mapping models trained on OpenEarthMap generalize worldwide and can be used as off-the-shelf models in a variety of applications.
 

@@ -31,7 +31,10 @@ OpenEarthMap is a benchmark dataset for global high-resolution land cover mappin
 ```
 
 ### License
-Label data of OpenEarthMap are provided under the same license as the original RGB images, which varies with each source dataset. Label data for regions where the original RGB images are in the public domain or where the license is not explicitly stated are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) International License. For more details, please see the attribution of source data in the supplementary document of our paper ([https://arxiv.org/abs/2210.10732](https://arxiv.org/abs/2210.10732)).
+<!-- Label data of OpenEarthMap are provided under the same license as the original RGB images, which varies with each source dataset. Label data for regions where the original RGB images are in the public domain or where the license is not explicitly stated are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) International License. For more details, please see the attribution of source data in the supplementary document of our paper ([https://arxiv.org/abs/2210.10732](https://arxiv.org/abs/2210.10732)).
+
+ -->
+Label data of OpenEarthMap are provided under the same license as the original RGB images, which varies with each source dataset. For more details, please see the attribution of source data [here](https://open-earth-map.org/attribution.html). Label data for regions where the original RGB images are in the public domain or where the license is not explicitly stated are licensed under a Creative [Commons Attribution-NonCommercial-ShareAlike 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) International License.
 
 ### Note for xBD data
 The RGB images of xBD dataset are not included in the OpenEarthMap dataset. Please download the xBD RGB images from https://xview2.org/dataset and add them to the corresponding folders. The "xbd_files.csv" contains information about how to prepare the xBD RGB images and add them to the corresponding folders.

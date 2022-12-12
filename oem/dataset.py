@@ -27,10 +27,11 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
         augm (Classes): transfromation pipeline (e.g. Rotate, Crop, etc.)
     """
 
-    def __init__(self, img_list: list, n_classes: int = 9, augm=None):
+    def __init__(self, img_list: list, n_classes: int = 9, testing=False, augm=None):
         self.fn_imgs = [str(f) for f in img_list]
         self.fn_msks = [f.replace("/images/", "/labels/") for f in self.fn_imgs]
         self.augm = augm
+        self.testing = testing
         self.classes = np.arange(n_classes).tolist()
         self.to_tensor = transforms.ToTensor(classes=self.classes)
 
@@ -39,7 +40,11 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         img = Image.fromarray(self.load_multiband(self.fn_imgs[idx]))
-        msk = Image.fromarray(self.load_grayscale(self.fn_msks[idx]))
+
+        if not self.testing:
+            msk = Image.fromarray(self.load_grayscale(self.fn_msks[idx]))
+        else:
+            msk = Image.fromarray(np.zeros(img.size[:2], dtype="uint8"))
 
         if self.augm is not None:
             data = self.augm({"image": img, "mask": msk})

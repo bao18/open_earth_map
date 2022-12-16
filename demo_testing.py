@@ -5,7 +5,7 @@ import warnings
 import numpy as np
 import torch
 import cv2
-import oem
+import open_earth_map.oem as oem
 from pathlib import Path
 
 warnings.filterwarnings("ignore")

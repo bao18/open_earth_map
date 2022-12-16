@@ -29,7 +29,7 @@ class OpenEarthMapDataset(torch.utils.data.Dataset):
 
     def __init__(self, img_list: list, n_classes: int = 9, testing=False, augm=None):
         self.fn_imgs = [str(f) for f in img_list]
-        self.fn_msks = [f.replace("/images/", "/labels/") for f in self.fn_imgs]
+        self.fn_msks = [f.replace("images", "labels") for f in self.fn_imgs]
         self.augm = augm
         self.testing = testing
         self.classes = np.arange(n_classes).tolist()

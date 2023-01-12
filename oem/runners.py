@@ -70,8 +70,8 @@ def train_epoch(model, optimizer, criterion, dataloader, device="cpu"):
 
     iterator = tqdm(dataloader, desc="Train")
     for x, y, *_ in iterator:
-        x = x.to(device)
-        y = y.to(device)
+        x = x.to(device).float()
+        y = y.to(device).float()
         n = x.shape[0]
 
         optimizer.zero_grad()
@@ -111,8 +111,8 @@ def valid_epoch(model=None, criterion=None, dataloader=None, device="cpu"):
 
     iterator = tqdm(dataloader, desc="Valid")
     for x, y, *_ in iterator:
-        x = x.to(device)
-        y = y.to(device)
+        x = x.to(device).float()
+        y = y.to(device).float()
         n = x.shape[0]
 
         with torch.no_grad():

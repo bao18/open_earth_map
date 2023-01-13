@@ -1,8 +1,8 @@
 import random
 import numbers
 import numpy as np
-import PIL
 import torchvision.transforms.functional as TF
+from torchvision.transforms import InterpolationMode
 
 
 class ToTensor:
@@ -23,8 +23,8 @@ class Rotate:
     def __call__(self, sample):
         angle = random.uniform(*self.degrees)
 
-        img = TF.rotate(sample["image"], angle, interpolation=PIL.Image.BICUBIC)
-        msk = TF.rotate(sample["mask"], angle, interpolation=PIL.Image.NEAREST)
+        img = TF.rotate(sample["image"], angle, InterpolationMode.BICUBIC)
+        msk = TF.rotate(sample["mask"], angle, InterpolationMode.NEAREST)
         return {"image": img, "mask": msk}
 
 
@@ -44,8 +44,8 @@ class Crop:
             img = TF.crop(sample["image"], i, j, *self.size)
             msk = TF.crop(sample["mask"], i, j, *self.size)
         else:
-            img = TF.resize(sample["image"], self.size, interpolation=PIL.Image.BICUBIC)
-            msk = TF.resize(sample["mask"], self.size, interpolation=PIL.Image.NEAREST)
+            img = TF.resize(sample["image"], self.size, InterpolationMode.BICUBIC)
+            msk = TF.resize(sample["mask"], self.size, InterpolationMode.NEAREST)
 
         return {"image": img, "mask": msk}
 
@@ -59,7 +59,7 @@ class Resize:
 
     def __call__(self, sample):
 
-        img = TF.resize(sample["image"], self.size, interpolation=PIL.Image.BICUBIC)
-        msk = TF.resize(sample["mask"], self.size, interpolation=PIL.Image.NEAREST)
+        img = TF.resize(sample["image"], self.size, InterpolationMode.BICUBIC)
+        msk = TF.resize(sample["mask"], self.size, InterpolationMode.NEAREST)
 
         return {"image": img, "mask": msk}

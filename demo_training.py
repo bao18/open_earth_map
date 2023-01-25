@@ -3,8 +3,7 @@ import time
 import warnings
 import numpy as np
 import torch
-# import open_earth_map.oem as oem
-import oem
+import open_earth_map
 import torchvision
 from pathlib import Path
 
@@ -36,24 +35,24 @@ if __name__ == "__main__":
 
     train_augm = torchvision.transforms.Compose(
         [
-            oem.transforms.Rotate(),
-            oem.transforms.Crop(IMG_SIZE),
+            open_earth_map.transforms.Rotate(),
+            open_earth_map.transforms.Crop(IMG_SIZE),
         ],
     )
 
     val_augm = torchvision.transforms.Compose(
         [
-            oem.transforms.Resize(IMG_SIZE),
+            open_earth_map.transforms.Resize(IMG_SIZE),
         ],
     )
 
-    train_data = oem.dataset.OpenEarthMapDataset(
+    train_data = open_earth_map.dataset.OpenEarthMapDataset(
         train_fns,
         n_classes=N_CLASSES,
         augm=train_augm,
     )
 
-    val_data = oem.dataset.OpenEarthMapDataset(
+    val_data = open_earth_map.dataset.OpenEarthMapDataset(
         val_fns,
         n_classes=N_CLASSES,
         augm=val_augm,
@@ -73,15 +72,15 @@ if __name__ == "__main__":
         shuffle=False,
     )
 
-    network = oem.networks.UNet(in_channels=3, n_classes=N_CLASSES)
+    network = open_earth_map.networks.UNet(in_channels=3, n_classes=N_CLASSES)
     optimizer = torch.optim.Adam(network.parameters(), lr=LR)
-    criterion = oem.losses.JaccardLoss()
+    criterion = open_earth_map.losses.JaccardLoss()
 
     max_score = 0
     for epoch in range(NUM_EPOCHS):
         print(f"\nEpoch: {epoch + 1}")
 
-        train_logs = oem.runners.train_epoch(
+        train_logs = open_earth_map.runners.train_epoch(
             model=network,
             optimizer=optimizer,
             criterion=criterion,
@@ -89,7 +88,7 @@ if __name__ == "__main__":
             device=DEVICE,
         )
 
-        valid_logs = oem.runners.valid_epoch(
+        valid_logs = open_earth_map.runners.valid_epoch(
             model=network,
             criterion=criterion,
             dataloader=val_data_loader,
@@ -99,7 +98,7 @@ if __name__ == "__main__":
         epoch_score = valid_logs["Score"]
         if max_score < epoch_score:
             max_score = epoch_score
-            oem.utils.save_model(
+            open_earth_map.utils.save_model(
                 model=network,
                 epoch=epoch,
                 best_score=max_score,

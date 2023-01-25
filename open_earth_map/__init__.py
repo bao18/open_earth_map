@@ -4,5 +4,5 @@ from . import metrics
 from . import runners
 from . import utils
 from . import transforms
-from .networks import UNet
-from .networks import UNetFormer
+from .networks.unet import UNet
+from .networks.unetformer import UNetFormer
